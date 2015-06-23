@@ -37,6 +37,10 @@ setup(
         "gevent==1.0.2"
     ],
     entry_points={
+        'drivers': [
+            'cassandra=drivers.cassandra:Cassandra',
+            'disk=drivers.disk:Disk',
+        ],
         'console_scripts': [
             #"indigo = indigo.cli:main"
         ],
