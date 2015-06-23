@@ -39,9 +39,10 @@ def calculate_metrics(driverlist):
         METRICS["storage"][driver_name]["total"] = total
         METRICS["storage"][driver_name]["percent_used"] = percent
 
-        count, size, max_size = driver.resource_info()
+        count, size, max_size, min_size = driver.resource_info()
         METRICS["storage"][driver_name]["resource_count"] = count
         METRICS["storage"][driver_name]["avg_size"] = size
         METRICS["storage"][driver_name]["max_size"] = max_size
+        METRICS["storage"][driver_name]["min_size"] = min_size
 
 

@@ -20,4 +20,4 @@ class Cassandra(BaseDriver):
         return size - avail
 
     def resource_info(self):
-        return 0, 0, 0
+        return 0, 0, 0, 0

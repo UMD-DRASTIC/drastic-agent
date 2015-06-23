@@ -1,4 +1,5 @@
 import os
+import sys
 from os.path import join, getsize
 from drivers.base import BaseDriver
 
@@ -22,13 +23,16 @@ class Disk(BaseDriver):
     def resource_info(self):
         total_size = 0
         total_count = 0
-        max_size = 0
+        max_size, min_size = 0, sys.maxint
+
         for root, dirs, files in os.walk(self.settings["ROOT"]):
             for name in files:
                 sz = getsize(join(root, name))
                 total_size += sz
                 max_size = max(max_size, sz)
+                if sz != 0:
+                    min_size = min(min_size, sz)
             total_count += len(files)
-        return total_count, total_size / total_count, max_size
+        return total_count, total_size / total_count, max_size, min_size
 
 

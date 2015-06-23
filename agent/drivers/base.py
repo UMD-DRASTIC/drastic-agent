@@ -17,6 +17,6 @@ class BaseDriver(object):
         return 0
 
     def resource_info(self):
-        count, size, max_size = 0, 0, 0
-        return count, size, max_size
+        count, size, max_size, min_size = [0, 0, 0, 0]
+        return count, size, max_size, min_size
 
