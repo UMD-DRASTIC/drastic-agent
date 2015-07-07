@@ -1,7 +1,8 @@
+import os
 from datetime import datetime
 
 from gevent import monkey; monkey.patch_all()
-from flask import Flask, json, jsonify, render_template, request
+from flask import Flask, json, jsonify, render_template, request, Response
 from config import Configuration
 
 app = Flask(__name__)
@@ -20,6 +21,21 @@ def metrics():
     from metrics import METRICS
     return jsonify(**METRICS)
 
+@app.route('/get/<path:path>', methods=['GET'])
+def get(path):
+    root = config.get_driver_settings("DISK")['ROOT']
+    fullpath = os.path.join(root, path)
+
+    def generate(p):
+        chunk_size = 1024 * 1024 * 1
+        with open(p, 'r') as f:
+            while True:
+                data = f.read(chunk_size)
+                if not data:
+                    break
+                yield data
+
+    return Response(generate(fullpath))
 
 @app.route('/notify', methods=['POST'])
 def notify():
