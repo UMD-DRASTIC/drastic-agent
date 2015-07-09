@@ -62,6 +62,7 @@ def notify():
                    resource=resource.to_dict() if resource else {},
                    timestamp=datetime.now().isoformat())
 
+
 @app.route('/notify/test')
 def notify_test():
     return render_template('test.html')

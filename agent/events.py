@@ -17,6 +17,9 @@ def resource_new(args):
 
     # Archive the newly created content and metadata
 
+    # Prepare a preview for this resource ... we need to decide where
+    # to store it so that it is available.
+
 
 def resource_edit(args):
     resource = args[0]
