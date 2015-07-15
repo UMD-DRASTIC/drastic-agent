@@ -16,10 +16,11 @@ class Configuration(object):
                 raise Exception(u"Unable to find AGENT_CONFIG env var")
             if not os.path.exists(loc):
                 raise Exception(u"Unable to find the config file at '{}".format(loc))
+
+            execfile(loc, globals(), self.config)
         except:
             pass
 
-        execfile(loc, globals(), self.config)
 
     def get_driver_settings(self, name):
         return self.config.get(u'{}_CONFIG'.format(name.upper()), {})
