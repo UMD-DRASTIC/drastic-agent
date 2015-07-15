@@ -34,7 +34,8 @@ setup(
     url='https://bitbucket.org/archivea/indigo-agent',
     install_requires = [
         "flask==0.10.1",
-        "gevent==1.0.2"
+        "gevent==1.0.2",
+        "gunicorn"
     ],
     entry_points={
         'drivers': [
