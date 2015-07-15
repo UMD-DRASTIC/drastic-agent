@@ -10,11 +10,14 @@ class Configuration(object):
     def __init__(self, *args, **kwargs):
         self.config = {}
 
-        loc = os.environ.get(u"AGENT_CONFIG")
-        if not loc:
-            raise Exception(u"Unable to find AGENT_CONFIG env var")
-        if not os.path.exists(loc):
-            raise Exception(u"Unable to find the config file at '{}".format(loc))
+        loc = os.environ.get(u"AGENT_CONFIG", "settings")
+        try:
+            if not loc:
+                raise Exception(u"Unable to find AGENT_CONFIG env var")
+            if not os.path.exists(loc):
+                raise Exception(u"Unable to find the config file at '{}".format(loc))
+        except:
+            pass
 
         execfile(loc, globals(), self.config)
 
