@@ -10,7 +10,7 @@ class Configuration(object):
     def __init__(self, *args, **kwargs):
         self.config = {}
 
-        loc = os.environ.get(u"AGENT_CONFIG", "settings")
+        loc = os.environ.get(u"AGENT_CONFIG")
         try:
             if not loc:
                 raise Exception(u"Unable to find AGENT_CONFIG env var")
