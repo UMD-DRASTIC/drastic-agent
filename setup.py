@@ -36,6 +36,7 @@ setup(
         "flask==0.10.1",
         "gevent==1.0.2",
         "gunicorn",
+        "python-dateutil==2.4.2",
         "nose==1.3.6"
     ],
     entry_points={

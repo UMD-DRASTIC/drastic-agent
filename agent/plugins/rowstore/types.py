@@ -36,6 +36,12 @@ def _update_scores(d, k):
     d[k] += 1
 
 def is_datetime(x):
+    from dateutil.parser import parse
+    try:
+        parse(x)
+        return True
+    except ValueError:
+        pass
     return False
 
 def count_types(resource_url):

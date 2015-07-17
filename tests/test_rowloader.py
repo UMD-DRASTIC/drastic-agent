@@ -51,3 +51,15 @@ class RowLoaderTest(unittest.TestCase):
         assert results["field2"]["string"] == 2
         assert results["field2"]["int"] == 0
         assert results["field2"]["datetime"] == 0
+
+    def test_type_guessing_with_datetimes(self):
+        cnt, results = count_types("test://tests/data/small_datetimes.csv")
+        assert cnt == 2
+        assert len(results) == 2
+        assert results["field1"]["string"] == 0
+        assert results["field1"]["int"] == 0
+        assert results["field1"]["datetime"] == 2
+
+        assert results["field2"]["string"] == 2
+        assert results["field2"]["int"] == 0
+        assert results["field2"]["datetime"] == 0
