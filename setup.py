@@ -35,7 +35,8 @@ setup(
     install_requires = [
         "flask==0.10.1",
         "gevent==1.0.2",
-        "gunicorn"
+        "gunicorn",
+        "nose==1.3.6"
     ],
     entry_points={
         'drivers': [
