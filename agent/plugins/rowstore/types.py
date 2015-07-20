@@ -6,6 +6,7 @@ of rows (which originate either from a CSV or an Excel file).
 import collections
 import csv
 from cStringIO import StringIO
+import operator
 
 from indigo.drivers import get_driver
 from indigo.util import IterStreamer
@@ -31,8 +32,8 @@ def is_float(x):
 def _update_scores(d, k):
     d["int"]      += 0
     d["float"]    += 0
-    d["datetime"] += 0
-    d["string"]   += 0
+    d["timestamp"] += 0
+    d["text"]   += 0
     d[k] += 1
 
 def is_datetime(x):
@@ -44,11 +45,20 @@ def is_datetime(x):
         pass
     return False
 
+def guess_type(counts):
+    """
+    Uses the counts to determine the most likely type for each
+    column.
+    """
+    #TODO: Handle multiple results with same value
+    #TODO: Work out whether we want most/least specialised
+    return max(counts.iteritems(), key=operator.itemgetter(1))[0]
+
 def count_types(resource_url):
     """
     Returns the number of rows processed and a dictionary where
-    each key is the column name, and for each type (string,
-    number, datetime) returns the number of times it appearead
+    each key is the column name, and for each type (text,
+    int, timestamp) returns the number of times it appearead
     in the reader.
 
     resource_url should point to a CSV/XLS file.
@@ -69,9 +79,9 @@ def count_types(resource_url):
             elif is_float(v):
                 _update_scores(types[k], "float")
             elif is_datetime(v):
-                _update_scores(types[k], "datetime")
+                _update_scores(types[k], "timestamp")
             else:
-                _update_scores(types[k], "string")
+                _update_scores(types[k], "text")
 
         rows += 1
 
