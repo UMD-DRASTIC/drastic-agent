@@ -77,17 +77,26 @@ class RowLoaderTest(unittest.TestCase):
         assert guess_type(results["field2"]) == "text"
 
     def test_keyspace_creation_datetime(self):
-        cnt, types = count_types("test://tests/data/small_datetimes.csv")
-        assert cnt == 2
-        assert len(types) == 2
-
         resource = Resource.create(name='test_keyspace_cql_datetime',
                                    container=self.root.id,
                                    url="test://tests/data/small_datetimes.csv",
                                    mimetype="text/csv")
+        self._test_keyspace_resource(resource)
+
+    def test_keyspace_creation_datetime(self):
+        resource = Resource.create(name='test_keyspace_cql_datetime',
+                                   container=self.root.id,
+                                   url="test://tests/data/small_numbers.csv",
+                                   mimetype="text/csv")
+        self._test_keyspace_resource(resource)
+
+    def _test_keyspace_resource(self, resource):
+        cnt, types = count_types(resource.url)
+        assert cnt == 2
+        assert len(types) == 2
 
         statement = generate_create_cql(resource, types).strip()
         assert resource.id.replace('-','') in statement
-        for k in types:
+        for k, v in types.iteritems():
             assert k in statement
-
+            assert guess_type(v) in statement
