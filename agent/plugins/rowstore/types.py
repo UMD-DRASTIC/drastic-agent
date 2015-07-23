@@ -13,7 +13,7 @@ from indigo.util import IterStreamer
 
 def is_int(x):
     try:
-        i = int(x)
+        _ = int(x)
         return True
     except:
         pass
@@ -22,7 +22,7 @@ def is_int(x):
 
 def is_float(x):
     try:
-        f = float(x)
+        _ = float(x)
         return True
     except:
         pass
@@ -30,10 +30,10 @@ def is_float(x):
     return False
 
 def _update_scores(d, k):
-    d["int"]      += 0
-    d["float"]    += 0
+    d["int"] += 0
+    d["float"] += 0
     d["timestamp"] += 0
-    d["text"]   += 0
+    d["text"] += 0
     d[k] += 1
 
 def is_datetime(x):

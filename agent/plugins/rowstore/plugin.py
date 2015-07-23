@@ -1,7 +1,6 @@
 """
 
 """
-from indigo.drivers import get_driver
 from indigo.util import IterStreamer
 
 def log(msg):
