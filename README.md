@@ -12,8 +12,9 @@ a wsgi app that can be used to download the digital objects.
 
 ## Agent config configuration
 
-This is an example of a configuration file that you an use to define where the 
-agent is looking for the root of the archive on the filesystem.
+This is an example of a configuration file that you can use to define where the 
+agent is looking for the root of the archive on the filesystem (path defined with
+AGENT_CONFIG environment variable).
 
     DISK_CONFIG = { 'ROOT': '/data' }
 
