@@ -4,6 +4,12 @@ __pycache__/
 *$py.class
 settings.py
 
+# IntelliJ
+.idea/
+
+# Vagrant
+.vagrant/
+
 # C extensions
 *.so
 
