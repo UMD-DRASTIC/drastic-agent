@@ -16,15 +16,17 @@ initialise("indigo")
 def home():
     return render_template('index.html')
 
+
 @app.route('/metrics')
 def metrics():
     from metrics import METRICS
     return jsonify(**METRICS)
 
+
 @app.route('/get/<path:path>', methods=['GET'])
 def get(path):
     root = config.get_driver_settings("DISK")['ROOT']
-    fullpath = os.path.join(root, path)
+    full_path = os.path.join(root, path)
 
     def generate(p):
         chunk_size = 1024 * 1024 * 1
@@ -35,7 +37,8 @@ def get(path):
                     break
                 yield data
 
-    return Response(generate(fullpath))
+    return Response(generate(full_path))
+
 
 @app.route('/notify', methods=['POST'])
 def notify():

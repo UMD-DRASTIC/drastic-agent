@@ -9,25 +9,23 @@ from cStringIO import StringIO
 import operator
 
 from indigo.drivers import get_driver
-from indigo.util import IterStreamer
+
 
 def is_int(x):
     try:
-        _ = int(x)
+        int(x)
         return True
-    except:
-        pass
+    except ValueError:
+        return False
 
-    return False
 
 def is_float(x):
     try:
-        _ = float(x)
+        float(x)
         return True
-    except:
-        pass
+    except ValueError:
+        return False
 
-    return False
 
 def _update_scores(d, k):
     d["int"] += 0
@@ -36,23 +34,25 @@ def _update_scores(d, k):
     d["text"] += 0
     d[k] += 1
 
+
 def is_datetime(x):
     from dateutil.parser import parse
     try:
         parse(x)
         return True
     except ValueError:
-        pass
-    return False
+        return False
+
 
 def guess_type(counts):
     """
     Uses the counts to determine the most likely type for each
     column.
     """
-    #TODO: Handle multiple results with same value
-    #TODO: Work out whether we want most/least specialised
+    # TODO: Handle multiple results with same value
+    # TODO: Work out whether we want most/least specialised
     return max(counts.iteritems(), key=operator.itemgetter(1))[0]
+
 
 def count_types(resource_url):
     """

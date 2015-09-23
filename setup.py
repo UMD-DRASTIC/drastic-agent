@@ -32,7 +32,7 @@ setup(
     maintainer_email='@archiveanalytics.com',
     license="Apache License, Version 2.0",
     url='https://bitbucket.org/archivea/indigo-agent',
-    install_requires = [
+    install_requires=[
         "flask==0.10.1",
         "gevent==1.0.2",
         "gunicorn",

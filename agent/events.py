@@ -1,14 +1,14 @@
-
 from gevent import spawn
 
-def handle_event(object, event):
+
+def handle_event(obj, event):
     """
     Launches the appropriate co-routine for the event
     and provides the resource as a parameter
     """
-    print "Handling {} event on {}".format(event, object.id)
+    print "Handling {} event on {}".format(event, obj.id)
     f = EVENTS[event]
-    spawn(f, [object])
+    spawn(f, [obj])
 
 
 def resource_new(args):
@@ -27,7 +27,6 @@ def resource_edit(args):
 
     # If the file contents have changed, we should re-archive the file
     # If the metadata has changed (likely) we should re-archive the metadata
-
 
 
 EVENTS = {

@@ -4,6 +4,7 @@ from tests import register_keyspace
 from agent.plugins.loader import run_plugins
 from indigo.models import Collection, Resource
 
+
 class PluginTest(unittest.TestCase):
 
     def setUp(self):

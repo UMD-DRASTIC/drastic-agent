@@ -3,8 +3,10 @@
 """
 from indigo.util import IterStreamer
 
+
 def log(msg):
     print u"[ROWSTORE]: {}".format(msg)
+
 
 def can_handle_resource(resource):
     """
@@ -16,6 +18,7 @@ def can_handle_resource(resource):
     if resource.mimetype in ['text/csv']:
         return load_resource
     return None
+
 
 def load_resource(resource):
     """
@@ -31,6 +34,5 @@ def load_resource(resource):
     # If it already exists, then decide what we want
     # to do.
 
-
-    #d = get_driver(resource.url)
-    #s = IterStreamer(d.chunk_content())
+    # d = get_driver(resource.url)
+    # s = IterStreamer(d.chunk_content())

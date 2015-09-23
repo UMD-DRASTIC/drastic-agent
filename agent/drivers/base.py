@@ -1,11 +1,7 @@
-
-
-
 class BaseDriver(object):
 
     def __init__(self, settings):
         self.settings = settings
-
 
     ################################################################
     # Metrics
@@ -19,4 +15,3 @@ class BaseDriver(object):
     def resource_info(self):
         count, size, max_size, min_size = [0, 0, 0, 0]
         return count, size, max_size, min_size
-

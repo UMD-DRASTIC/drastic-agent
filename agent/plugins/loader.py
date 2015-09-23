@@ -6,6 +6,7 @@ given resource
 import pkgutil
 import importlib
 
+
 def run_plugins(resource):
     ran = []
     for _, name, ispkg in pkgutil.iter_modules(['agent/plugins']):

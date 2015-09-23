@@ -11,16 +11,18 @@ def metrics_processor(drivers):
     print "Spawning metrics process"
     spawn(metrics_background, drivers)
 
+
 def metrics_background(drivers):
     while True:
         calculate_metrics(drivers)
         sleep(30)
 
-def calculate_metrics(driverlist):
+
+def calculate_metrics(driver_list):
     from drivers import load
     global METRICS
 
-    for driver_name in driverlist:
+    for driver_name in driver_list:
         driver = load(driver_name)
         METRICS["storage"][driver_name] = {}
         free = driver.free_space()
@@ -44,5 +46,3 @@ def calculate_metrics(driverlist):
         METRICS["storage"][driver_name]["avg_size"] = size
         METRICS["storage"][driver_name]["max_size"] = max_size
         METRICS["storage"][driver_name]["min_size"] = min_size
-
-

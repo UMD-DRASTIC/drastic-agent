@@ -3,13 +3,12 @@ import sys
 from os.path import join, getsize
 from drivers.base import BaseDriver
 
-class Disk(BaseDriver):
 
+class Disk(BaseDriver):
 
     ################################################################
     # Metrics
     ################################################################
-
     def free_space(self):
         stats = os.statvfs(self.settings["ROOT"])
         return stats.f_frsize * stats.f_bavail
@@ -34,5 +33,3 @@ class Disk(BaseDriver):
                     min_size = min(min_size, sz)
             total_count += len(files)
         return total_count, total_size / total_count, max_size, min_size
-
-

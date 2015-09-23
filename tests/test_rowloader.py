@@ -1,10 +1,10 @@
 import unittest
 
-from tests import register_keyspace
-from agent.plugins.rowstore.plugin import can_handle_resource, load_resource
+from agent.plugins.rowstore.plugin import can_handle_resource
 from agent.plugins.rowstore.types import count_types, guess_type
 from agent.plugins.rowstore.cql import generate_create_cql
 from indigo.models import Collection, Resource
+
 
 class RowLoaderTest(unittest.TestCase):
 
@@ -60,7 +60,6 @@ class RowLoaderTest(unittest.TestCase):
         assert guess_type(results["field1"]) == "int"
         assert guess_type(results["field2"]) == "text"
 
-
     def test_type_guessing_with_datetimes(self):
         cnt, results = count_types("test://tests/data/small_datetimes.csv")
         assert cnt == 2
@@ -83,7 +82,7 @@ class RowLoaderTest(unittest.TestCase):
                                    mimetype="text/csv")
         self._test_keyspace_resource(resource)
 
-    def test_keyspace_creation_datetime(self):
+    def test_keyspace_creation_numbers(self):
         resource = Resource.create(name='test_keyspace_cql_datetime',
                                    container=self.root.id,
                                    url="test://tests/data/small_numbers.csv",
@@ -96,7 +95,7 @@ class RowLoaderTest(unittest.TestCase):
         assert len(types) == 2
 
         statement = generate_create_cql(resource, types).strip()
-        assert resource.id.replace('-','') in statement
+        assert resource.id.replace('-', '') in statement
         for k, v in types.iteritems():
             assert k in statement
             assert guess_type(v) in statement

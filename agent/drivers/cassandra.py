@@ -2,12 +2,12 @@ import os
 from drivers.base import BaseDriver
 from indigo.models.resource import Resource
 
+
 class Cassandra(BaseDriver):
 
     ################################################################
     # Metrics
     ################################################################
-
     def free_space(self):
         stats = os.statvfs(self.settings["STORAGE_ROOT"])
         return stats.f_frsize * stats.f_bavail

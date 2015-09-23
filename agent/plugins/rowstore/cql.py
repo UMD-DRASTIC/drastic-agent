@@ -17,4 +17,3 @@ def generate_create_cql(resource, types):
             {fields}
         );
     """.format(id=keyspace_name, fields=fields_string)
-
