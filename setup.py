@@ -37,7 +37,9 @@ setup(
         "gevent==1.0.2",
         "gunicorn",
         "python-dateutil==2.4.2",
-        "nose==1.3.6"
+        "nose==1.3.6",
+        "crcmod==1.7",
+        "blist==1.3.6"
     ],
     entry_points={
         'drivers': [

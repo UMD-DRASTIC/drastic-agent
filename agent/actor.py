@@ -7,7 +7,7 @@ class Actor(gevent.Greenlet):
         self.inbox = queue.Queue()
         Greenlet.__init__(self)
 
-    def recieve(self, message):
+    def receive(self, message):
         """
         Define in your subclass.
         """
@@ -18,5 +18,5 @@ class Actor(gevent.Greenlet):
 
         while self.running:
             message = self.inbox.get()
-            self.recieve(message)
+            self.receive(message)
 
