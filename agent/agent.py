@@ -9,7 +9,10 @@ app = Flask(__name__)
 config = Configuration()
 
 from indigo.models import initialise, Resource
-initialise("indigo")
+from indigo import get_config
+cfg = get_config(None)
+initialise(cfg.get('KEYSPACE', 'indigo'),
+           hosts=cfg.get('CASSANDRA_HOSTS', ('127.0.0.1', )))
 
 
 @app.route('/')

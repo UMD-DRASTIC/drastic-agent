@@ -2,7 +2,6 @@
 __pycache__/
 *.py[cod]
 *$py.class
-settings.py
 
 # IntelliJ
 .idea/
@@ -12,6 +11,10 @@ settings.py
 
 # C extensions
 *.so
+# Eclipse project
+.project
+.pydevproject
+.settings
 
 # Distribution / packaging
 .Python
@@ -63,3 +66,5 @@ docs/_build/
 
 # PyBuilder
 target/
+
+.idea/
