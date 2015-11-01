@@ -39,7 +39,8 @@ setup(
         "python-dateutil==2.4.2",
         "nose==1.3.6",
         "crcmod==1.7",
-        "blist==1.3.6"
+        "blist==1.3.6",
+        "paho-mqtt==1.1"
     ],
     entry_points={
         'drivers': [
