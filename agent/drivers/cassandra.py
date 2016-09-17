@@ -1,6 +1,10 @@
+__copyright__ = "Copyright (C) 2016 University of Maryland"
+__license__ = "GNU AFFERO GENERAL PUBLIC LICENSE, Version 3"
+
+
 import os
 from drivers.base import BaseDriver
-from indigo.models.resource import Resource
+from drastic.models.resource import Resource
 
 
 class Cassandra(BaseDriver):

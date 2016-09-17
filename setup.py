@@ -1,21 +1,11 @@
 # -*- coding: utf-8 -*-
-"""Setup for Indigo-Agent
-
-Copyright 2015 Archive Analytics Solutions
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
+"""Setup for Drastic-Agent
 
 """
+__copyright__ = "Copyright (C) 2016 University of Maryland"
+__license__ = "GNU AFFERO GENERAL PUBLIC LICENSE, Version 3"
+
+
 import inspect
 import os
 from distutils.core import setup
@@ -23,15 +13,15 @@ from setuptools import setup, find_packages
 
 
 setup(
-    name='indigo-agent',
+    name='drastic-agent',
     version="1.0",
-    description='Indigo agent server',
+    description='Drastic agent server',
     extras_require={},
     long_description="Standalone agent for storage management",
     author='Archive Analytics',
-    maintainer_email='@archiveanalytics.com',
-    license="Apache License, Version 2.0",
-    url='https://bitbucket.org/archivea/indigo-agent',
+    maintainer_email='jansen@umd.edu',
+    license="GNU AFFERO GENERAL PUBLIC LICENSE, Version 3",
+    url='https://github.com/UMD-DRASTIC/drastic-agent',
     install_requires=[
         "flask==0.10.1",
         "gevent==1.0.2",
@@ -48,12 +38,12 @@ setup(
             'disk=drivers.disk:Disk',
         ],
         'console_scripts': [
-            #"indigo = indigo.cli:main"
+            # "drastic = drastic.cli:main"
         ],
     },
     classifiers=[
         "Development Status :: 4 - Beta",
-        "License :: OSI Approved :: Apache Software License",
+        "License :: OSI Approved :: GNU Affero General Public License v3",
         "Programming Language :: Python :: 2.7",
         "Topic :: Internet :: WWW/HTTP :: WSGI",
         "Topic :: Internet :: WWW/HTTP :: WSGI :: Application",

@@ -2,6 +2,10 @@
 Contains a background task that will collect metrics about the
 agent and make them available via the / route as a JSON object.
 """
+__copyright__ = "Copyright (C) 2016 University of Maryland"
+__license__ = "GNU AFFERO GENERAL PUBLIC LICENSE, Version 3"
+
+
 from gevent import spawn, sleep
 
 METRICS = {"storage": {}}

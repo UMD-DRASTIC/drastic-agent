@@ -3,6 +3,10 @@ Iterate through all of the modules in the plugins folder
 and check the plugin module to see if it can handle a
 given resource
 """
+__copyright__ = "Copyright (C) 2016 University of Maryland"
+__license__ = "GNU AFFERO GENERAL PUBLIC LICENSE, Version 3"
+
+
 import pkgutil
 import importlib
 

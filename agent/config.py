@@ -1,7 +1,11 @@
 """
-Configuration for the indigo agent.  Loads the agent.ini file specified
+Configuration for the drastic agent.  Loads the agent.ini file specified
 in AGENT_CONFIG and makes the values available to the server.
 """
+__copyright__ = "Copyright (C) 2016 University of Maryland"
+__license__ = "GNU AFFERO GENERAL PUBLIC LICENSE, Version 3"
+
+
 import os
 
 

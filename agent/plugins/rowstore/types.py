@@ -2,13 +2,16 @@
 This module provides type-guessing for a providing collection
 of rows (which originate either from a CSV or an Excel file).
 """
+__copyright__ = "Copyright (C) 2016 University of Maryland"
+__license__ = "GNU AFFERO GENERAL PUBLIC LICENSE, Version 3"
+
 
 import collections
 import csv
 from cStringIO import StringIO
 import operator
 
-from indigo.drivers import get_driver
+from drastic.drivers import get_driver
 
 
 def is_int(x):

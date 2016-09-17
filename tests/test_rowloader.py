@@ -3,7 +3,7 @@ import unittest
 from agent.plugins.rowstore.plugin import can_handle_resource
 from agent.plugins.rowstore.types import count_types, guess_type
 from agent.plugins.rowstore.cql import generate_create_cql
-from indigo.models import Collection, Resource
+from drastic.models import Collection, Resource
 
 
 class RowLoaderTest(unittest.TestCase):

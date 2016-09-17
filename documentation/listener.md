@@ -1,4 +1,4 @@
-Indigo event listener
+Drastic event listener
 =====================
 
 The listener will use the pub/sub functionality of Redis 3.0.4 as its

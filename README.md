@@ -1,4 +1,4 @@
-# Indigo Agent
+# Drastic Agent
 
 The agent is responsible for post-processing on uploaded content, it executes
 a wsgi app that can be used to download the digital objects.
@@ -7,14 +7,14 @@ a wsgi app that can be used to download the digital objects.
 ## Environment variables
 
     export CQLENG_ALLOW_SCHEMA_MANAGEMENT=1
-    export INDIGO_SCHEMA=/path/to/schema.json
+    export DRASTIC_SCHEMA=/path/to/schema.json
     export AGENT_CONFIG=/path/to/agentconfig
 
-This can be added in the file `/etc/init/indigo-agent.conf` to be configured
+This can be added in the file `/etc/init/drastic-agent.conf` to be configured
 when the agent is launched by upstart
 
     env CQLENG_ALLOW_SCHEMA_MANAGEMENT=1
-    env AGENT_CONFIG=/usr/lib/indigo/agent/project/agent.config
+    env AGENT_CONFIG=/usr/lib/drastic/agent/project/agent.config
 
 
 ## Agent config configuration
@@ -30,7 +30,7 @@ AGENT_CONFIG environment variable).
 The agent is managed by upstart, it should be configured automatically when
 deployed. It can be run with the command
 
-```sudo service indigo-agent start```
+```sudo service drastic-agent start```
 
 ## The Agent
 
@@ -38,6 +38,6 @@ Agent is listening on port 9000
 
     http://localhost:9000/
 
-It provides an internal API used by indigo to download files managed by the
+It provides an internal API used by drastic to download files managed by the
 agent driver, for instance the URL `http://localhost:9000/get/test/test.txt` will try
 to download the file `/data/test/test.txt` on the file system.

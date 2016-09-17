@@ -1,3 +1,7 @@
+__copyright__ = "Copyright (C) 2016 University of Maryland"
+__license__ = "GNU AFFERO GENERAL PUBLIC LICENSE, Version 3"
+
+
 import os
 from datetime import datetime
 
@@ -8,10 +12,10 @@ from config import Configuration
 app = Flask(__name__)
 config = Configuration()
 
-from indigo.models import initialise, Resource
-from indigo import get_config
+from drastic.models import initialise, Resource
+from drastic import get_config
 cfg = get_config(None)
-initialise(cfg.get('KEYSPACE', 'indigo'),
+initialise(cfg.get('KEYSPACE', 'drastic'),
            hosts=cfg.get('CASSANDRA_HOSTS', ('127.0.0.1', )))
 
 
